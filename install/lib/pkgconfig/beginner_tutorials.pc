@@ -1,0 +1,8 @@
+prefix=/home/tudeng/juhan-rtech/install
+
+Name: beginner_tutorials
+Description: Description of beginner_tutorials
+Version: 0.0.0
+Cflags: -I/home/tudeng/juhan-rtech/install/include
+Libs: -L/home/tudeng/juhan-rtech/install/lib -lbeginner_tutorials
+Requires: roscpp rospy std_msgs message_runtime
