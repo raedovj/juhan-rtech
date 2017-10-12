@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find my_r2d2)/launch/r2d2.launch" />
+  <include file="$(find my_r2d2)/launch/ar_tracker.launch" />
+</launch>
+

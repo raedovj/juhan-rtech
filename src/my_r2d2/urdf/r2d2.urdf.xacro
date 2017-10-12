@@ -245,4 +245,13 @@
     <origin xyz="${.707*width+0.04} 0 ${.707*width}"/>
   </joint>
 
+  <link name="eye">
+  </link>
+
+  <joint name="eyetobox" type="fixed">
+    <parent link="box"/>
+    <child link="eye"/>
+    <origin rpy="${pi/2} ${pi} ${pi/2}" xyz="0 0 0"/>
+  </joint>
+
 </robot>

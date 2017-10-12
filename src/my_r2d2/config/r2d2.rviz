@@ -74,6 +74,10 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        eye:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         gripper_pole:
           Alpha: 1
           Show Axes: false
@@ -161,6 +165,8 @@ Visualization Manager:
           Value: true
         box:
           Value: true
+        eye:
+          Value: true
         gripper_pole:
           Value: true
         head:
@@ -176,6 +182,8 @@ Visualization Manager:
         left_leg:
           Value: true
         left_tip:
+          Value: true
+        odom:
           Value: true
         right_back_wheel:
           Value: true
@@ -195,31 +203,41 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_footprint:
-          base_link:
-            gripper_pole:
-              left_gripper:
-                left_tip:
-                  {}
-              right_gripper:
-                right_tip:
-                  {}
-            head:
-              box:
-                {}
-            left_leg:
-              left_base:
-                left_back_wheel:
-                  {}
-                left_front_wheel:
-                  {}
-            right_leg:
-              right_base:
-                right_back_wheel:
-                  {}
-                right_front_wheel:
-                  {}
+        odom:
+          base_footprint:
+            base_link:
+              gripper_pole:
+                left_gripper:
+                  left_tip:
+                    {}
+                right_gripper:
+                  right_tip:
+                    {}
+              head:
+                box:
+                  eye:
+                    {}
+              left_leg:
+                left_base:
+                  left_back_wheel:
+                    {}
+                  left_front_wheel:
+                    {}
+              right_leg:
+                right_base:
+                  right_back_wheel:
+                    {}
+                  right_front_wheel:
+                    {}
       Update Interval: 0
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: visualization_marker
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
@@ -245,7 +263,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.10275
+      Distance: 2.52537
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
@@ -257,10 +275,10 @@ Visualization Manager:
         Z: 0
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.275397
+      Pitch: 0.820397
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.243581
+      Yaw: 0.628581
     Saved: ~
 Window Geometry:
   Displays:
@@ -278,5 +296,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1216
-  X: 362
+  X: 352
   Y: 14
