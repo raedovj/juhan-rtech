@@ -1,0 +1,11 @@
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find point_visualizer)/config/rviz.rviz"/>
+
+  <node pkg="tf" type="static_transform_publisher" name="static_tf_pub" 
+  args="0 0 0 0 0 0 world odom 100" />
+
+  <node pkg="mouse_reader" type="mouse_event_publisher" name="mouse_event_publisher" />
+
+  <node pkg="point_visualizer" type="position_publisher_mouse" name="position_publisher_mouse" />
+
+</launch>
