@@ -1,7 +1,6 @@
-
 #include "ros/ros.h"
 #include "mouse_reader/mouse_reader.h"
-#include "mouse_reader/MouseMotion.h"
+#include "mouse_reader/mouse_vel.h"
 
 /** Main function and a ROS publisher */
 int main(int argc, char *argv[]) {
@@ -36,21 +35,27 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  ros::Publisher pub_mouse = nh.advertise<mouse_reader::MouseMotion>("mouse", 1000);
+  ros::Publisher pub_mouse = nh.advertise<mouse_reader::mouse_vel>("mouse", 1000);
   
-  mouse_reader::MouseMotion motion_event;
+  mouse_reader::mouse_vel motion_event;
 
   // Vector containing event data
   std::vector <int16_t> event;
   
   while(ros::ok())
   {
+    ROS_INFO("Getting mouse event.");
     event = mouse.getMouseMotionEvent();	
     
     // Compose a publishable message
-    motion_event.motion_code = event[0];
-    motion_event.value = event[1];
-    if (event[0] == 0 || event[0] == 1) pub_mouse.publish(motion_event);
+    motion_event.Xval = event[0];
+    motion_event.Yval = event[1];
+    if (event[0] != 0 || event[0] != 1)
+    {
+      ROS_INFO("Publishing xvel=%d,yvel=%d", event[0],event[1]);
+      pub_mouse.publish(motion_event);
+      
+    }
     
   } // end while
   

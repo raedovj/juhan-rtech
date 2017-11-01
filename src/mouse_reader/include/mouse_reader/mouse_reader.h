@@ -41,7 +41,7 @@ public:
 
   void closeMouse();
   bool isReadable();
-  std::vector <int16_t> processEvent( struct input_event *ev );
+  //std::vector <int16_t> processEvent( struct input_event *ev );
   std::vector <int16_t> getMouseMotionEvent();
   //std::string getKeyName( uint16_t key_code );
 
@@ -51,8 +51,8 @@ private:
 
   std::vector<std::string> valid_substrings =
   {
-    "mouse",
-    "mouse"
+    "Logitech",
+    "HP"    
   };
 
 }; // end class Mouse

@@ -28,7 +28,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
   #INCLUDE_DIRS include
   LIBRARIES point_visualizer
-  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs #keyboard_reader
+  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs
   DEPENDS system_lib
 )
 

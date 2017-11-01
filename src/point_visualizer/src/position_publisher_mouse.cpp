@@ -1,6 +1,6 @@
 #include "ros/ros.h"
 #include "geometry_msgs/PointStamped.h"
-#include "mouse_reader/MouseMotion.h"
+#include "mouse_reader/mouse_vel.h"
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 
@@ -8,13 +8,11 @@ float xStart = 0;
 float yStart = 0;
 float zStart = 0;
 
-void mouseCallback(const mouse_reader::MouseMotion::ConstPtr& msg)
+void mouseCallback(const mouse_reader::mouse_vel::ConstPtr& msg)
 {
-  ROS_INFO("I heard mouse: code %d , value %d", msg->motion_code, msg->value);
-  if (msg->motion_code == 0) 
-    xStart += float(msg->value)/100;
-  else if (msg->motion_code == 1) 
-    yStart += float(msg->value)/100;
+  ROS_INFO("I heard mouse: x %d , y %d", msg->Xval, msg->Yval);
+  xStart -= msg->Xval/500.0;
+  yStart += msg->Yval/500.0;
 }
 
 int main(int argc, char **argv)

@@ -18,7 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate messages in the 'msg' folder
 add_message_files(
   FILES
-  MouseMotion.msg
+  mouse_vel.msg
 )
 
 ## Generate added messages and services with any dependencies listed here
@@ -34,7 +34,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES mouse_reader
-#  CATKIN_DEPENDS message_generation roscpp rospy std_msg
+#   CATKIN_DEPENDS message_generation roscpp rospy std_msg
 #  DEPENDS system_lib
 )
 
