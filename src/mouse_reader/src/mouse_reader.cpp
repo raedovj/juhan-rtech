@@ -70,6 +70,9 @@ std::vector <int16_t> Mouse::getMouseMotionEvent()
   int16_t ySum = 0;
   int16_t validReadings = 0;
   
+  int16_t buttonNr = -1;
+  int16_t buttonVal = -1;
+  
   if( r > 0 )
   {
       events = r / sizeof(struct input_event);				// getting the number of events
@@ -89,19 +92,27 @@ std::vector <int16_t> Mouse::getMouseMotionEvent()
 	    validReadings++;
 	  }
 	}
+	else if (ev.type == EV_KEY) 
+	{
+	  buttonNr = ev.code;
+	  buttonVal = ev.value;
+	}
+	
       } //end for
-      if (validReadings > 0) 
+      if (validReadings == 0) 
       {
-	event_info.push_back(xSum*10.0/validReadings);
-	event_info.push_back(ySum*10.0/validReadings);
-	return event_info;
+	validReadings = 1;
       }
-      return {0, 0};
+      event_info.push_back(xSum*10.0/validReadings);
+      event_info.push_back(ySum*10.0/validReadings);
+      event_info.push_back(buttonNr);
+      event_info.push_back(buttonVal);
+      return event_info;
   }
   else
   {
     fprintf(stderr, "read() failed: %s\n", strerror(errno));	// let user know that read() failed
-    return {0, 0};
+    return {0, 0, -1, -1};
   }
-  return {0, 0};
+  return {0, 0, -1, -1};
 }
