@@ -1,0 +1,33 @@
+controller_list:
+  - name: fake_first_sia5_planner_controller
+    joints:
+      - first_joint_s
+      - first_joint_l
+      - first_joint_e
+      - first_joint_u
+      - first_joint_r
+      - first_joint_b
+      - first_joint_t
+  - name: fake_second_ur5_planner_controller
+    joints:
+      - second_shoulder_pan_joint
+      - second_shoulder_lift_joint
+      - second_elbow_joint
+      - second_wrist_1_joint
+      - second_wrist_2_joint
+      - second_wrist_3_joint
+  - name: fake_dual_planner_controller
+    joints:
+      - first_joint_s
+      - first_joint_l
+      - first_joint_e
+      - first_joint_u
+      - first_joint_r
+      - first_joint_b
+      - first_joint_t
+      - second_shoulder_pan_joint
+      - second_shoulder_lift_joint
+      - second_elbow_joint
+      - second_wrist_1_joint
+      - second_wrist_2_joint
+      - second_wrist_3_joint

@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: dual_manipulator_support
+    relative_path: urdf/dual_manipulators_sia5_ur5.xacro
+  SRDF:
+    relative_path: config/dual_manipulators.srdf
+  CONFIG:
+    author_name: juhan
+    author_email: raedovj@hotmail.com
+    generated_timestamp: 1511440918
