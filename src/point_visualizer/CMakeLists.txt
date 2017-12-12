@@ -27,9 +27,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   #INCLUDE_DIRS include
-  LIBRARIES point_visualizer
-  CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs
-  DEPENDS system_lib
+  #LIBRARIES point_visualizer
+  #CATKIN_DEPENDS geometry_msgs roscpp rospy std_msgs
+  #DEPENDS system_lib
 )
 
 ###########
@@ -38,18 +38,13 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-#include_directories(
-#  include
-#    ${catkin_INCLUDE_DIRS}
-#)
+include_directories( include ${catkin_INCLUDE_DIRS} )
 
 add_executable(position_publisher src/position_publisher.cpp)
 target_link_libraries(position_publisher ${catkin_LIBRARIES})
-#add_dependencies(position_publisher point_visualizer_generate_messages_cpp)
 
 add_executable(position_publisher_keyboard src/position_publisher_keyboard.cpp)
 target_link_libraries(position_publisher_keyboard ${catkin_LIBRARIES})
-#add_dependencies(position_publisher_keyboard point_visualizer_generate_messages_cpp)
 
 add_executable(position_publisher_mouse src/position_publisher_mouse.cpp)
 target_link_libraries(position_publisher_mouse ${catkin_LIBRARIES})
