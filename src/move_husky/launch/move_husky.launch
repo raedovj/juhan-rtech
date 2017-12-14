@@ -1,0 +1,8 @@
+<launch>
+  <include file="$(find husky_gazebo)/launch/husky_playpen.launch" />
+
+  <node pkg="mouse_reader" type="mouse_event_publisher" name="mouse_event_publisher" />
+
+  <node pkg="move_husky" type="move_husky" name="move_husky" />
+
+</launch>
